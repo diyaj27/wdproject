@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Recipe Book | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesminip.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <h1 class="logo">🍲 My Recipe Book</h1>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="saved-recipes.html">Saved</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Explore 100+ Delicious Recipes</h2>
+        <p>Handpicked dishes from around the world. Find your next favorite meal!</p>
+        <div class="dropdown">
+          <button class="dropbtn">Search Recipes ⬇</button>
+          <div class="dropdown-content">
+            <a href="#" onclick="showRecipe('Asparagus Stir-Fry')">Asparagus Stir-Fry</a>
+            <a href="#" onclick="showRecipe('Chocolate Cake')">Chocolate Cake</a>
+            <a href="#" onclick="showRecipe('Chicken Curry')">Chicken Curry</a>
+            <a href="#" onclick="showRecipe('Pasta Primavera')">Pasta Primavera</a>
+            <a href="#" onclick="showRecipe('Gnocchi with Basil')">Gnocchi with Basil</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recipe-detail" id="recipeDetail" style="display:none;">
+      <div class="container">
+        <h3 id="recipeTitle"></h3>
+        <img id="recipeImage" src="" alt="" style="width: 100%; max-width: 400px;">
+        <p id="recipeDescription"></p>
+        <button onclick="goBack()" class="btn">⬅ Back</button>
+      </div>
+    </section>
+
+    <section class="recipe-gallery" id="recipeGallery">
+      <div class="container">
+        <h3>Most Recent Recipes</h3>
+        <div class="grid">
+          <div class="card" onclick="showRecipe('Asparagus Stir-Fry')">
+            <img src="https://www.theseasonedmom.com/wp-content/uploads/2019/03/Asparagus-and-Beef-Stir-Fry-10.jpg" alt="Asparagus Stir-Fry">
+            <h4>Asparagus Stir-Fry</h4>
+          </div>
+          <div class="card" onclick="showRecipe('Chocolate Cake')">
+            <img src="https://bluebowlrecipes.com/wp-content/uploads/2023/08/chocolate-truffle-cake-8844.jpg" alt="Chocolate Cake">
+            <h4>Chocolate Cake</h4>
+          </div>
+          <div class="card" onclick="showRecipe('Chicken Curry')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwGgGQ1MVza2Y0R29PDxQKBOFMuEKOMFjZQ&s.jpg" alt="Chicken Curry">
+            <h4>Chicken Curry</h4>
+          </div>
+          <div class="card" onclick="showRecipe('Pasta Primavera')">
+            <img src="https://familystylefood.com/wp-content/uploads/2023/05/Pasta-Primavera-serving.jpg" alt="Pasta Primavera">
+            <h4>Pasta Primavera</h4>
+          </div>
+          <div class="card" onclick="showRecipe('Gnocchi with Basil')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpGPWntBOJ0WNts6xFGtHUObpJUnMYVrNqTw&s.jpg" alt="Gnocchi with Basil">
+            <h4>Gnocchi with Basil</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 My Recipe Book. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const recipeData = {
+      "Asparagus Stir-Fry": {
+        image: "https://www.theseasonedmom.com/wp-content/uploads/2019/03/Asparagus-and-Beef-Stir-Fry-10.jpg",
+        description: "A healthy stir-fry of asparagus, mushrooms, and cashews in a light garlic sauce."
+      },
+      "Chocolate Cake": {
+        image: "https://bluebowlrecipes.com/wp-content/uploads/2023/08/chocolate-truffle-cake-8844.jpg",
+        description: "A rich, moist chocolate cake layered with decadent ganache and frosting."
+      },
+      "Chicken Curry": {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwGgGQ1MVza2Y0R29PDxQKBOFMuEKOMFjZQ&s.jpg",
+        description: "A spicy Indian curry made with tender chicken and aromatic spices."
+      },
+      "Pasta Primavera": {
+        image: "https://familystylefood.com/wp-content/uploads/2023/05/Pasta-Primavera-serving.jpg",
+        description: "Fresh pasta tossed with seasonal vegetables and a light herb sauce."
+      },
+      "Gnocchi with Basil": {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpGPWntBOJ0WNts6xFGtHUObpJUnMYVrNqTw&s.jpg",
+        description: "Soft potato gnocchi with a creamy basil pesto and parmesan."
+      }
+    };
+
+    function showRecipe(name) {
+      document.getElementById('recipeTitle').innerText = name;
+      document.getElementById('recipeImage').src = recipeData[name].image;
+      document.getElementById('recipeDescription').innerText = recipeData[name].description;
+      document.getElementById('recipeDetail').style.display = 'block';
+      document.getElementById('recipeGallery').style.display = 'none';
+    }
+
+    function goBack() {
+      document.getElementById('recipeDetail').style.display = 'none';
+      document.getElementById('recipeGallery').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
+
+

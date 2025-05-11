@@ -1,0 +1,19 @@
+[
+  {
+    "id": 0,
+    "name": "Spaghetti Carbonara",
+    "category": "italian",
+    "image": "images/spaghetti.jpg",
+    "ingredients": ["Spaghetti", "Eggs", "Cheese", "Pancetta", "Pepper"],
+    "instructions": "Boil pasta. Fry pancetta. Mix eggs and cheese. Combine all."
+  },
+  {
+    "id": 1,
+    "name": "Chicken Curry",
+    "category": "non-vegetarian",
+    "image": "images/chicken_curry.jpg",
+    "ingredients": ["Chicken", "Tomatoes", "Spices", "Onion", "Garlic"],
+    "instructions": "Cook chicken with spices. Add tomatoes and simmer."
+  }
+  // Add 100 more recipes similarly...
+]
